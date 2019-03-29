@@ -138,18 +138,31 @@ header {
 }
 
 .service__chooseblocks {
-    color: #717171;
     text-transform: capitalize;
     height: 73px;
+    font-size: 15pt;
     display: flex;
     align-items: stretch;
-    background-color: #f8fcfe;
     cursor: pointer;
 }
 
 .service__chooseblock {
     width: calc(100%/6);
-    font-size: 15pt;
+    color: #717171;
+    border: 1px solid rgba(113, 113, 113, 0.1);
+    background-color: #f8fcfe;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.service__choosed {
+
+    background-color: #18CFAB;
+    color: #FFF;
+    width: calc(100%/6);
+
     border: 1px solid rgba(113, 113, 113, 0.1);
     display: flex;
     align-items: center;
@@ -157,36 +170,7 @@ header {
     position: relative;
 }
 
-.service__choose {
-    background-color: #18CFAB;
-    color: #FFF;
-}
-
-.service__choose::after {
-    position: absolute;
-    content: "";
-    top: 72px;
-    width: 0;
-    height: 0;
-    display: inline-block;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-top: 10px solid #18CFAB;
-    z-index: 99;
-}
-
-.service__hoverchoose {
-    color: #FFF;
-    background-color: #18CFAB;
-    width: calc(100%/6);
-    font-style: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-
-.service__hoverchoose::after {
+.service__choosed::after {
     position: absolute;
     content: "";
     top: 72px;
@@ -205,10 +189,9 @@ header {
 
 .service__nonvisibilityblock {
     display: block;
-}
-
-.service__firstcontentblock {
-    display: block;
+    /*transition: transform 2s ease-out;*/
+    /*transition: all 0s ease 0s;*/
+    /*transform: translateX(0px);*/
 }
 
 .service__contentblock {
@@ -232,10 +215,11 @@ header {
 /*"Service" block end*/
 .buy {
     height: 476px;
-    width: 100%
-    background-color: #878787;
+    width: 100% background-color: #878787;
     background-size: cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../Images/Buy/buy-bg.jpg) center no-repeat;
 }
+
 .buy__content {
     height: 100%;
     display: flex;
@@ -243,6 +227,7 @@ header {
     justify-content: center;
     align-items: center;
 }
+
 .buy__firstline {
     font-size: 30pt;
     text-transform: uppercase;
@@ -256,6 +241,7 @@ header {
     font-size: 16pt;
     margin-bottom: 75px;
 }
+
 .buy__submit {
     color: #FFFFFF;
     text-transform: uppercase;
@@ -275,7 +261,88 @@ header {
 .buy__submit:hover {
     background-color: #00CBF6;
 }
+
 /*"Buy" block end*/
+.work {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.work__chooseblocks {
+    text-transform: capitalize;
+    height: 60px;
+    width: 609px;
+    font-size: 10pt;
+    display: flex;
+    align-items: stretch;
+    cursor: pointer;
+    margin-bottom: 70px;
+}
+
+.work__chooseblock {
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #565656;
+    border: 1px solid rgba(113, 113, 113, 0.1);
+    display: flex;
+    align-items: center;
+}
+
+.work__choose {
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #18CFAB;
+    border: 1px solid rgba(113, 113, 113, 0.1);
+    display: flex;
+    align-items: center;
+    border-top: 2px solid #18CFAB;
+}
+.work__contentblock {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+    align-content: flex-start;
+}
+.work__relativeblock {
+    position: relative;
+    height: 208px;
+    width: 286px;
+}
+
+.work__contentimg {
+    width: auto;
+    height: 100%;
+}
+
+.work__hovercontentblock {
+    /*display: inline-block;*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 208px;
+    border-top: 4px solid #18CFAB;
+    padding-top: 46px;
+    background-color: rgba(113, 113, 113, 0.7);
+
+}
+.work__hoverfirstline {
+    margin-top: 36px;
+    text-transform: uppercase;
+    font-size: 14pt;
+    font-weight: bold;
+}
+
+.work__hoversecondline {
+    display: none;
+    margin-top: 12px;
+    text-transform: capitalize;
+    font-size: 12pt;
+    font-weight: 300;
+    color: #8A8A8A;
+}
+/*"Work" block end*/
 .bgcolormain {
     background-color: #18CFAB;
 }
@@ -305,4 +372,36 @@ header {
     flex-direction: column;
     align-items: center;
     width: 100%;
+}
+
+.loadmore-button {
+    display: block;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    height: 60px;
+    width: 165px;
+    border-radius: 5px;
+    margin-top: 70px;
+    text-align: center;
+    font-size: 13pt;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loadmore-button:hover {
+    background-color: #00CBF6;
+}
+
+.loadmore-span {
+    display: block;
+    font-size: 26pt;
+
+}
+
+.loadmoretext-span {
+    display: block;
+    padding-top: 5px;
 }
