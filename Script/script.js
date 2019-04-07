@@ -64,20 +64,19 @@ const workImgs = {
         "Images/Work/wordpress10.jpg"
     ]
 };
+
 let randomProperty = function(obj) {
     let keys = Object.keys(obj);
     return obj[keys[keys.length * Math.random() << 0]];
 };
-// console.log(randomProperty(workImgs));
-
 const $workCategories = $('.work__chooseblocks');
+
 for (let key in workImgs) {
     if (key === 'Graphic design') {
         for (let i = 0; i < 4; i++) {
             let $allWorkContentBlock = $('<div/>', {
                 class: 'work__relativeblock',
             });
-            // console.log(workImgs[key]);
             $allWorkContentBlock.append(`<img src="${workImgs[key][i]}" alt="Work-chain icon" class="work__contentimg">`);
             let $allWorkHoverBlock = $('<div/>', {
                 class: 'work__hovercontentblock verticalaligncenter',
@@ -91,13 +90,11 @@ for (let key in workImgs) {
             $allWorkContentBlock.append($allWorkHoverBlock);
             $(".work__contentblocks").append($allWorkContentBlock);
         };
-
     } else if (key === 'Web design') {
         for (let i = 0; i < 4; i++) {
             let $allWorkContentBlock = $('<div/>', {
                 class: 'work__relativeblock',
             });
-            // console.log(workImgs[key]);
             $allWorkContentBlock.append(`<img src="${workImgs[key][i]}" alt="Work-chain icon" class="work__contentimg">`);
             let $allWorkHoverBlock = $('<div/>', {
                 class: 'work__hovercontentblock verticalaligncenter',
@@ -116,7 +113,6 @@ for (let key in workImgs) {
             let $allWorkContentBlock = $('<div/>', {
                 class: 'work__relativeblock',
             });
-            // console.log(workImgs[key]);
             $allWorkContentBlock.append(`<img src="${workImgs[key][i]}" alt="Work-chain icon" class="work__contentimg">`);
             let $allWorkHoverBlock = $('<div/>', {
                 class: 'work__hovercontentblock verticalaligncenter',
@@ -149,10 +145,8 @@ $workCategories.click((event) => {
     const workCategoryTextContent = $(event.target).text();
 
     let createWorkContent = (category) => {
-
         if (category !== 'All') {
             $.each(workImgs[category], (i, val) => {
-
                 let $workContentBlock = $('<div/>', {
                     class: 'work__relativeblock',
                 });
@@ -168,20 +162,17 @@ $workCategories.click((event) => {
                          <p class="work__hoverfirstline colormain ">Creative design</p>
                          <p class="work__hoversecondline">${category}</p>`);
                 $workContentBlock.append($workHoverBlock);
-
                 $(".work__contentblocks").append($workContentBlock);
                 $('.work__hovercontentblock').hide();
                 $('.work__loadmoreButton').hide();
             });
         } else if (category === 'All') {
-
             for (let key in workImgs) {
                 if (key === 'Graphic design') {
                     for (let i = 0; i < 4; i++) {
                         let $allWorkContentBlock = $('<div/>', {
                             class: 'work__relativeblock',
                         });
-                        // console.log(workImgs[key]);
                         $allWorkContentBlock.append(`<img src="${workImgs[key][i]}" alt="Work-chain icon" class="work__contentimg">`);
                         let $allWorkHoverBlock = $('<div/>', {
                             class: 'work__hovercontentblock verticalaligncenter',
@@ -195,13 +186,11 @@ $workCategories.click((event) => {
                         $allWorkContentBlock.append($allWorkHoverBlock);
                         $(".work__contentblocks").append($allWorkContentBlock);
                     };
-
                 } else if (key === 'Web design') {
                     for (let i = 0; i < 4; i++) {
                         let $allWorkContentBlock = $('<div/>', {
                             class: 'work__relativeblock',
                         });
-                        // console.log(workImgs[key]);
                         $allWorkContentBlock.append(`<img src="${workImgs[key][i]}" alt="Work-chain icon" class="work__contentimg">`);
                         let $allWorkHoverBlock = $('<div/>', {
                             class: 'work__hovercontentblock verticalaligncenter',
@@ -220,7 +209,6 @@ $workCategories.click((event) => {
                         let $allWorkContentBlock = $('<div/>', {
                             class: 'work__relativeblock',
                         });
-                        // console.log(workImgs[key]);
                         $allWorkContentBlock.append(`<img src="${workImgs[key][i]}" alt="Work-chain icon" class="work__contentimg">`);
                         let $allWorkHoverBlock = $('<div/>', {
                             class: 'work__hovercontentblock verticalaligncenter',
@@ -235,11 +223,9 @@ $workCategories.click((event) => {
                         $(".work__contentblocks").append($allWorkContentBlock);
                     };
                 };
-
                 $('.work__hovercontentblock').hide();
                 $('.work__loadmoreButton').show();
             };
-
         };
 
         $('.work__relativeblock').mouseenter(function(event) {
@@ -249,24 +235,84 @@ $workCategories.click((event) => {
                 $('.work__hovercontentblock').hide();
             });
         });
-
-
     };
     createWorkContent(workCategoryTextContent);
 });
-// console.log($('.work__relativeblock').length);
 
 $('.work__loadmoreButton').click((event) => {
-
     if ($('.work__relativeblock').length <= 12) {
-
         for (let key in workImgs) {
             if (key === 'Graphic design') {
-                for (let i = 4; i < 8; i++) {
+                for (let i = 4; i < 7; i++) {
                     let $allWorkContentBlock = $('<div/>', {
                         class: 'work__relativeblock',
                     });
-                    // console.log(workImgs[key]);
+                    $allWorkContentBlock.append(`<img src="${workImgs[key][i]}" alt="Work-chain icon" class="work__contentimg">`);
+                    let $allWorkHoverBlock = $('<div/>', {
+                        class: 'work__hovercontentblock verticalaligncenter',
+                    });
+                    $allWorkHoverBlock.append(`<div>
+                         <img src="Images/Work/Work-chain.png" alt="Work-chain icon" class="work__hovercontentimg">
+                         <img src="Images/Work/Work-search@1X.png" alt="Work-search icon" class="work__hovercontentimg">
+                         </div>
+                         <p class="work__hoverfirstline colormain ">Creative design</p>
+                         <p class="work__hoversecondline">${key}</p>`);
+                    $allWorkContentBlock.append($allWorkHoverBlock);
+                    $(".work__contentblocks").append($allWorkContentBlock);
+                };
+            } else if (key === 'Landing pages') {
+                for (let i = 0; i < 3; i++) {
+                    let $allWorkContentBlock = $('<div/>', {
+                        class: 'work__relativeblock',
+                    });
+                    $allWorkContentBlock.append(`<img src="${workImgs[key][i]}" alt="Work-chain icon" class="work__contentimg">`);
+                    let $allWorkHoverBlock = $('<div/>', {
+                        class: 'work__hovercontentblock verticalaligncenter',
+                    });
+                    $allWorkHoverBlock.append(`<div>
+                         <img src="Images/Work/Work-chain.png" alt="Work-chain icon" class="work__hovercontentimg">
+                         <img src="Images/Work/Work-search@1X.png" alt="Work-search icon" class="work__hovercontentimg">
+                         </div>
+                         <p class="work__hoverfirstline colormain ">Creative design</p>
+                         <p class="work__hoversecondline">${key}</p>`);
+                    $allWorkContentBlock.append($allWorkHoverBlock);
+                    $(".work__contentblocks").append($allWorkContentBlock);
+                };
+            } else if (key === 'Wordpress') {
+                for (let i = 4; i < 10; i++) {
+                    let $allWorkContentBlock = $('<div/>', {
+                        class: 'work__relativeblock',
+                    });
+                    $allWorkContentBlock.append(`<img src="${workImgs[key][i]}" alt="Work-chain icon" class="work__contentimg">`);
+                    let $allWorkHoverBlock = $('<div/>', {
+                        class: 'work__hovercontentblock verticalaligncenter',
+                    });
+                    $allWorkHoverBlock.append(`<div>
+                         <img src="Images/Work/Work-chain.png" alt="Work-chain icon" class="work__hovercontentimg">
+                         <img src="Images/Work/Work-search@1X.png" alt="Work-search icon" class="work__hovercontentimg">
+                         </div>
+                         <p class="work__hoverfirstline colormain ">Creative design</p>
+                         <p class="work__hoversecondline">${key}</p>`);
+                    $allWorkContentBlock.append($allWorkHoverBlock);
+                    $(".work__contentblocks").append($allWorkContentBlock);
+                };
+            };
+            $('.work__hovercontentblock').hide();
+        };
+        $('.work__relativeblock').mouseenter(function(event) {
+            $('.work__hovercontentblock').not($(event.currentTarget).find('.work__hovercontentblock')).hide();
+            $(event.currentTarget).find('.work__hovercontentblock').show();
+            $(event.currentTarget).mouseleave((event) => {
+                $('.work__hovercontentblock').hide();
+            });
+        });
+    } else if ($('.work__relativeblock').length <= 24) {
+        for (let key in workImgs) {
+            if (key === 'Graphic design') {
+                for (let i = 7; i < 12; i++) {
+                    let $allWorkContentBlock = $('<div/>', {
+                        class: 'work__relativeblock',
+                    });
                     $allWorkContentBlock.append(`<img src="${workImgs[key][i]}" alt="Work-chain icon" class="work__contentimg">`);
                     let $allWorkHoverBlock = $('<div/>', {
                         class: 'work__hovercontentblock verticalaligncenter',
@@ -285,7 +331,6 @@ $('.work__loadmoreButton').click((event) => {
                     let $allWorkContentBlock = $('<div/>', {
                         class: 'work__relativeblock',
                     });
-                    // console.log(workImgs[key]);
                     $allWorkContentBlock.append(`<img src="${workImgs[key][i]}" alt="Work-chain icon" class="work__contentimg">`);
                     let $allWorkHoverBlock = $('<div/>', {
                         class: 'work__hovercontentblock verticalaligncenter',
@@ -300,11 +345,10 @@ $('.work__loadmoreButton').click((event) => {
                     $(".work__contentblocks").append($allWorkContentBlock);
                 };
             } else if (key === 'Landing pages') {
-                for (let i = 0; i < 5; i++) {
+                for (let i = 3; i < 7; i++) {
                     let $allWorkContentBlock = $('<div/>', {
                         class: 'work__relativeblock',
                     });
-                    // console.log(workImgs[key]);
                     $allWorkContentBlock.append(`<img src="${workImgs[key][i]}" alt="Work-chain icon" class="work__contentimg">`);
                     let $allWorkHoverBlock = $('<div/>', {
                         class: 'work__hovercontentblock verticalaligncenter',
@@ -320,9 +364,7 @@ $('.work__loadmoreButton').click((event) => {
                 };
             };
             $('.work__hovercontentblock').hide();
-            // $('.work__loadmoreButton').show();
         };
-
         $('.work__relativeblock').mouseenter(function(event) {
             $('.work__hovercontentblock').not($(event.currentTarget).find('.work__hovercontentblock')).hide();
             $(event.currentTarget).find('.work__hovercontentblock').show();
@@ -330,10 +372,6 @@ $('.work__loadmoreButton').click((event) => {
                 $('.work__hovercontentblock').hide();
             });
         });
-
-    } else
-    /////////////////////////////////////// Дописать если больше 24 и меньше 36 то удалять кнопку
-    {
         $('.work__loadmoreButton').hide();
     };
 });
@@ -369,7 +407,7 @@ $pag.mouseover((event) => {
     $(event.currentTarget).addClass('feedback__activepag').siblings().removeClass('feedback__activepag');
 });
 
-// "Gallery" section script:
+// "Gallery" section script using JavaScript grid layout library "Masonry":
 // var $grid = $('.grid').imagesLoaded( function() {
 let $grid = $('.grid').masonry({
     itemSelector: '.grid-item',
@@ -381,19 +419,29 @@ let $grid = $('.grid').masonry({
 // }); 
 
 $grid.on('mouseenter', '.grid-item', function(event) {
-    $('.gallery__img').not($(event.currentTarget)).css({ "visibility": "visible" });
-    $(event.currentTarget).find('img').css({ "visibility": "hidden" });
-    //   $(event.currentTarget).css({"background-color":"#878787", 
-    // "background":"linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7))", 
-    // "cursor":"pointer"});
+    $('.gallery__hovercontentblock').remove();
+    $(event.currentTarget).append(createGalleryHover());
     $grid.on('mouseleave', '.grid-item', () => {
-        $(this).find('img').css({ "visibility": "visible" });
+        $('.gallery__hovercontentblock').remove();
         // trigger layout
         $grid.masonry();
     });
     // trigger layout
     $grid.masonry();
 });
+
+let createGalleryHover = () => {
+    let $galleryHoverBlock = $('<div/>', {
+        class: 'gallery__hovercontentblock',
+    });
+    $galleryHoverBlock.append(`<div class="gallery__hovercontentblocks">
+        <img src="Images/Gallery/Search.png" alt="Gallery-search icon" class="gallery__hovercontentimg">
+        </div>
+        <div class="gallery__hovercontentblocks">
+        <img src="Images/Gallery/Expand.png" alt="Gallery-expand icon" class="gallery__hovercontentimg">
+        </div>`);
+    return $galleryHoverBlock;
+};
 
 $('.append-button').on('click', function() {
     let $elems = [getItemElement(), getItemElement(), getItemElement()];
@@ -407,11 +455,11 @@ $('.append-button').on('click', function() {
 
 function getItemElement() {
     let elem = document.createElement('div');
-    let wRand = Math.random();
+    // let wRand = Math.random();
     let hRand = Math.random();
-    let widthClass = wRand > 0.8 ? 'grid-item--width3' : wRand > 0.6 ? 'grid-item--width2' : '';
+    // let widthClass = wRand > 0.8 ? 'grid-item--width3' : wRand > 0.6 ? 'grid-item--width2' : '';
     let heightClass = hRand > 0.85 ? 'grid-item--height4' : hRand > 0.6 ? 'grid-item--height3' : hRand > 0.35 ? 'grid-item--height2' : '';
-    elem.className = 'grid-item ' + widthClass + ' ' + heightClass;
+    elem.className = 'grid-item ' + ' ' + heightClass;
     return elem;
 }
 
